@@ -1,4 +1,4 @@
-package h2;
+package main.h2;
 
 public class Inputreader {
 
