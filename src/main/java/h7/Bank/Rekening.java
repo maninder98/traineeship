@@ -1,4 +1,4 @@
-package Bank;
+package h7.Bank;
 
 public class Rekening {
 
