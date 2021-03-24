@@ -3,13 +3,13 @@ package TDD2;
 public class TrajectPrijsService {
 
 
-    private TrajectNaarTrajectEenhedenService trajectNaarTrajectEenjedenService = new TrajectNaarTrajectEenhedenService();
-    private TrajectEenhedenNaarPrijsService trajectEenhedenNaarPrijsService = new TrajectEenhedenNaarPrijsService();
+    private TrajectNaarTrajectEenheden trajectNaarTrajectEenjeden = new TrajectNaarTrajectEenhedenService();
+    private TrajectEenhedenNaarPrijs trajectEenhedenNaarPrijs = new TrajectEenhedenNaarPrijsService();
 
     public int getTrajectPrijs(String from, String to) {
 
-        int eenheden = trajectNaarTrajectEenjedenService.getTrajectEenheden(from, to);
-        int price = trajectEenhedenNaarPrijsService.getPriceTrajectEenheden(eenheden);
+        int eenheden = trajectNaarTrajectEenjeden.getTrajectEenheden(from, to);
+        int price = trajectEenhedenNaarPrijs.getPriceTrajectEenheden(eenheden);
         return eenheden * price;
     }
 

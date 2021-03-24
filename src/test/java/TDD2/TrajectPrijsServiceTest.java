@@ -12,7 +12,9 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -23,11 +25,8 @@ class TrajectPrijsServiceTest {
     @Mock
     private TrajectNaarTrajectEenheden esMock;
     @Mock
-    private TrajectEenhedenNaarPrijsService psMock;
+    private TrajectEenhedenNaarPrijs psMock;
 
-    @BeforeEach
-    void setUp() {
-    }
 
     @Test
     void getTrajectPrijs() {
@@ -36,10 +35,12 @@ class TrajectPrijsServiceTest {
         when(psMock.getPriceTrajectEenheden(anyInt())).thenReturn(3);
 
         //when
-        int price = target.getTrajectPrijs("ams", "apel");
+        int prijs = target.getTrajectPrijs("ams", "apel");
 
         //verify
-        assertThat(price).isEqualTo(60);
+        assertThat(prijs).isEqualTo(60);
+        verify(esMock).getTrajectEenheden(anyString(), anyString()/*, times(1)*/);
+        verify(psMock).getPriceTrajectEenheden(anyInt());
 
 
 

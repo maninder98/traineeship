@@ -2,7 +2,7 @@ package TDD2;
 
 import java.util.Random;
 
-public class TrajectNaarTrajectEenhedenService {
+public class TrajectNaarTrajectEenhedenService implements  TrajectNaarTrajectEenheden{
 
 
     public int getTrajectEenheden(String from, String to) {
