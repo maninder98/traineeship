@@ -18,6 +18,15 @@ public class Rekening {
         return saldo;
     }
 
+    @Override
+    public String toString() {
+        return "Rekening{" +
+                "nummer='" + nummer + '\'' +
+                ", saldo=" + saldo +
+                ", rentePercentage=" + rentePercentage +
+                '}';
+    }
+
     public double geldOpnemen(double bedrag) {
         if (saldo > 0) {
             this.saldo -= bedrag;
