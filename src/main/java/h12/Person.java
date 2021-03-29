@@ -1,9 +1,10 @@
-package H8;
+package h12;
 
+import h10.Human;
 import h7.Bank.Gender;
 import h7.Bank.PersonDiedException;
 
-public class Person {
+public class Person extends Human {
 
     private String name;
     private int age;
@@ -22,17 +23,19 @@ public class Person {
         this.gender = gender;
     }
 
+    @MyAnnotation
     public void haveBirthday() {
         if (this.age >= 130) throw new PersonDiedException();
         this.age++;
     }
 
-
+    @MyAnnotation2
     public Gender getGender() {
         return gender;
 
     }
 
+    @MyAnnotation
     public String getName() {
         return name;
     }
@@ -69,5 +72,9 @@ public class Person {
     @Override
     protected void finalize() throws Throwable {
         System.out.println("method finalize is called.");
+    }
+
+    public String greet() {
+        return " Hello, my name is " + this.name + ". Nice to meet you!.";
     }
 }

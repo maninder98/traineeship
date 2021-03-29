@@ -1,9 +1,9 @@
-package H8;
+package h10;
 
 import h7.Bank.Gender;
 import h7.Bank.PersonDiedException;
 
-public class Person {
+public class Person extends Human {
 
     private String name;
     private int age;
@@ -69,5 +69,9 @@ public class Person {
     @Override
     protected void finalize() throws Throwable {
         System.out.println("method finalize is called.");
+    }
+
+    public String greet() {
+        return " Hello, my name is " + this.name + ". Nice to meet you!.";
     }
 }

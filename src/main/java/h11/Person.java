@@ -1,13 +1,18 @@
-package H8;
+package h11;
 
+import h10.Human;
 import h7.Bank.Gender;
 import h7.Bank.PersonDiedException;
 
-public class Person {
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class Person extends Human {
 
     private String name;
     private int age;
     private Gender gender;
+    private ArrayList<HistoryRecord> historyRecords = new ArrayList<HistoryRecord>();
 
     public static final int numberOfPossibleGenders = Gender.values().length;
 
@@ -70,4 +75,47 @@ public class Person {
     protected void finalize() throws Throwable {
         System.out.println("method finalize is called.");
     }
+
+    public String greet() {
+        return " Hello, my name is " + this.name + ". Nice to meet you!.";
+    }
+
+    //H11
+
+    public void addHistory(String descr) {
+        historyRecords.add(new HistoryRecord(descr));
+
+    }
+
+    public void printHistory() {
+        for (int i = 0; i < historyRecords.size(); i++) {
+            System.out.println(historyRecords.get(i));
+        }
+
+    }
+
+    public Human createSubHuman() {
+        return new Human() {
+            @Override
+            public String greet() {
+                return "Sub is the best.";
+            }
+        };
+    }
+
+
+    private class HistoryRecord {
+        String description;
+
+        public HistoryRecord(String description) {
+            this.description = description;
+        }
+
+        @Override
+        public String toString() {
+            return description;
+        }
+    }
+
+
 }
